@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.koala</groupId>
-    <artifactId>beanDefinition</artifactId>
+    <artifactId>day01BeanDefinition</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>beanDefinition</name>
+    <name>day01BeanDefinition</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -26,10 +26,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
         <!-- 引入javax.inject -->
