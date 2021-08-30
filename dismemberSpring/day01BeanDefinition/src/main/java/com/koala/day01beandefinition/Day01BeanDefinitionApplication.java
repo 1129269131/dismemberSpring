@@ -7,9 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 测试：注意看控制台的输出，及输出的位置分析
- * 关注点：
+ * 关键点：
  *      day01：准备读取xml内容的读取器
  *      day02：利用Dom解析把xml解析成Document
+ *      day03：创建BeanDefinitionDocumentReader对象，并读取Document里面的对象
  *      dat04：找到BeanDefinitionParserDelegate
  *      day05：解析成BeanDefinition对象
  * Create by koala on 2021-08-29
