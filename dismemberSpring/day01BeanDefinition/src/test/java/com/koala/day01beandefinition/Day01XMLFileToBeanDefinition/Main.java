@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * 探究XML文件转化为BeanDefinition的过程
  * Create by koala on 2021-08-29
  */
 public class Main {
