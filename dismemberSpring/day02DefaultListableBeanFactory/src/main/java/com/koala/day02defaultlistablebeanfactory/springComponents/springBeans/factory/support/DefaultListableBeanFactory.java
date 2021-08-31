@@ -817,7 +817,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     @Override
     public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
-        System.out.println("day08：从档案馆中获取指定beanName的BeanDefinition对象");
         BeanDefinition bd = this.beanDefinitionMap.get(beanName);
         if (bd == null) {
             if (logger.isTraceEnabled()) {
@@ -994,7 +993,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
                 }
             }
             else {
-                System.out.println("day07：将BeanDefinition对象保存进档案馆");
                 // Still in startup registration phase
                 this.beanDefinitionMap.put(beanName, beanDefinition);
                 this.beanDefinitionNames.add(beanName);

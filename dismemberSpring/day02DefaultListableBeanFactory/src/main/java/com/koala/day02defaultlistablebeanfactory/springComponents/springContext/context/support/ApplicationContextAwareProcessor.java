@@ -27,10 +27,15 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 
     private final StringValueResolver embeddedValueResolver;
 
+
+    /**
+     * Create a new ApplicationContextAwareProcessor for the given context.
+     */
     public ApplicationContextAwareProcessor(ConfigurableApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
         this.embeddedValueResolver = new EmbeddedValueResolver(applicationContext.getBeanFactory());
     }
+
 
     @Override
     @Nullable

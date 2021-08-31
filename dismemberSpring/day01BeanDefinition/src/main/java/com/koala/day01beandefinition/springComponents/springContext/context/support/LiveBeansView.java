@@ -26,14 +26,21 @@ import java.util.Set;
 @Deprecated
 public class LiveBeansView implements LiveBeansViewMBean, ApplicationContextAware {
 
+    /**
+     * The "MBean Domain" property name.
+     */
     public static final String MBEAN_DOMAIN_PROPERTY_NAME = "spring.liveBeansView.mbeanDomain";
 
+    /**
+     * The MBean application key.
+     */
     public static final String MBEAN_APPLICATION_KEY = "application";
 
     private static final Set<ConfigurableApplicationContext> applicationContexts = new LinkedHashSet<>();
 
     @Nullable
     private static String applicationName;
+
 
     static void registerApplicationContext(ConfigurableApplicationContext applicationContext) {
         String mbeanDomain = applicationContext.getEnvironment().getProperty(MBEAN_DOMAIN_PROPERTY_NAME);
@@ -75,8 +82,10 @@ public class LiveBeansView implements LiveBeansViewMBean, ApplicationContextAwar
         }
     }
 
+
     @Nullable
     private ConfigurableApplicationContext applicationContext;
+
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
@@ -85,6 +94,12 @@ public class LiveBeansView implements LiveBeansViewMBean, ApplicationContextAwar
         this.applicationContext = (ConfigurableApplicationContext) applicationContext;
     }
 
+
+    /**
+     * Generate a JSON snapshot of current beans and their dependencies,
+     * finding all active ApplicationContexts through {@link #findApplicationContexts()},
+     * then delegating to {@link #generateJson(java.util.Set)}.
+     */
     @Override
     public String getSnapshotAsJson() {
         Set<ConfigurableApplicationContext> contexts;
@@ -97,12 +112,28 @@ public class LiveBeansView implements LiveBeansViewMBean, ApplicationContextAwar
         return generateJson(contexts);
     }
 
+    /**
+     * Find all applicable ApplicationContexts for the current application.
+     * <p>Called if no specific ApplicationContext has been set for this LiveBeansView.
+     * @return the set of ApplicationContexts
+     */
     protected Set<ConfigurableApplicationContext> findApplicationContexts() {
         synchronized (applicationContexts) {
             return new LinkedHashSet<>(applicationContexts);
         }
     }
 
+    /**
+     * Actually generate a JSON snapshot of the beans in the given ApplicationContexts.
+     * <p>This implementation doesn't use any JSON parsing libraries in order to avoid
+     * third-party library dependencies. It produces an array of context description
+     * objects, each containing a context and parent attribute as well as a beans
+     * attribute with nested bean description objects. Each bean object contains a
+     * bean, scope, type and resource attribute, as well as a dependencies attribute
+     * with a nested array of bean names that the present bean depends on.
+     * @param contexts the set of ApplicationContexts
+     * @return the JSON document
+     */
     protected String generateJson(Set<ConfigurableApplicationContext> contexts) {
         StringBuilder result = new StringBuilder("[\n");
         for (Iterator<ConfigurableApplicationContext> it = contexts.iterator(); it.hasNext();) {
@@ -157,11 +188,25 @@ public class LiveBeansView implements LiveBeansViewMBean, ApplicationContextAwar
         return result.toString();
     }
 
+    /**
+     * Determine whether the specified bean is eligible for inclusion in the
+     * LiveBeansView JSON snapshot.
+     * @param beanName the name of the bean
+     * @param bd the corresponding bean definition
+     * @param bf the containing bean factory
+     * @return {@code true} if the bean is to be included; {@code false} otherwise
+     */
     protected boolean isBeanEligible(String beanName, BeanDefinition bd, ConfigurableBeanFactory bf) {
         return (bd.getRole() != BeanDefinition.ROLE_INFRASTRUCTURE &&
                 (!bd.isLazyInit() || bf.containsSingleton(beanName)));
     }
 
+    /**
+     * Determine a resource description for the given bean definition and
+     * apply basic JSON escaping (backslashes, double quotes) to it.
+     * @param bd the bean definition to build the resource description for
+     * @return the JSON-escaped resource description
+     */
     @Nullable
     protected String getEscapedResourceDescription(BeanDefinition bd) {
         String resourceDescription = bd.getResourceDescription();

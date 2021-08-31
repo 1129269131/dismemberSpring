@@ -20,6 +20,7 @@ class ContextTypeMatchClassLoader extends DecoratingClassLoader implements Smart
         ClassLoader.registerAsParallelCapable();
     }
 
+
     private static Method findLoadedClassMethod;
 
     static {
@@ -31,7 +32,10 @@ class ContextTypeMatchClassLoader extends DecoratingClassLoader implements Smart
         }
     }
 
+
+    /** Cache for byte array per class name. */
     private final Map<String, byte[]> bytesCache = new ConcurrentHashMap<>(256);
+
 
     public ContextTypeMatchClassLoader(@Nullable ClassLoader parent) {
         super(parent);
@@ -39,12 +43,12 @@ class ContextTypeMatchClassLoader extends DecoratingClassLoader implements Smart
 
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
-        return new ContextOverridingClassLoader(getParent()).loadClass(name);
+        return new ContextTypeMatchClassLoader.ContextOverridingClassLoader(getParent()).loadClass(name);
     }
 
     @Override
     public boolean isClassReloadable(Class<?> clazz) {
-        return (clazz.getClassLoader() instanceof ContextOverridingClassLoader);
+        return (clazz.getClassLoader() instanceof ContextTypeMatchClassLoader.ContextOverridingClassLoader);
     }
 
     @Override
@@ -52,6 +56,11 @@ class ContextTypeMatchClassLoader extends DecoratingClassLoader implements Smart
         return defineClass(name, b, 0, b.length, protectionDomain);
     }
 
+
+    /**
+     * ClassLoader to be created for each loaded class.
+     * Caches class file content but redefines class for each call.
+     */
     private class ContextOverridingClassLoader extends OverridingClassLoader {
 
         public ContextOverridingClassLoader(ClassLoader parent) {
