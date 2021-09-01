@@ -1,5 +1,6 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config;
 
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.Scope;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;

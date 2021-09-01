@@ -1,5 +1,6 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support;
 
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.DefaultSingletonBeanRegistry;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.BeanCurrentlyInCreationException;

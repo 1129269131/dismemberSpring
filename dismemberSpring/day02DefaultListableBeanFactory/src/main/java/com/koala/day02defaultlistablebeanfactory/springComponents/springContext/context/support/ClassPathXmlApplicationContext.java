@@ -1,8 +1,7 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springContext.context.support;
 
+import com.koala.day02defaultlistablebeanfactory.springComponents.springContext.context.ApplicationContext;
 import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;

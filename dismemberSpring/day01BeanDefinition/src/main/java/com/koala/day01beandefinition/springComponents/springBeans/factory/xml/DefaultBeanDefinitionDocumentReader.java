@@ -94,6 +94,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
         // the new (child) delegate with a reference to the parent for fallback purposes,
         // then ultimately reset this.delegate back to its original (parent) reference.
         // this behavior emulates a stack of delegates without actually necessitating one.
+        System.out.println("dat04：找到BeanDefinitionParserDelegate");
         BeanDefinitionParserDelegate parent = this.delegate;
         this.delegate = createDelegate(getReaderContext(), root, parent);
 

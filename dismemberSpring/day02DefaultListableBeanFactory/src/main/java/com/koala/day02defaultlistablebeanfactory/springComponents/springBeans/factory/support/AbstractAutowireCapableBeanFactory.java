@@ -6,6 +6,8 @@ import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.fa
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanDefinition;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.ConfigurableBeanFactory;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.DependencyDescriptor;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.CglibSubclassingInstantiationStrategy;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.ImplicitlyAppearedSingletonException;
 import org.apache.commons.logging.Log;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;

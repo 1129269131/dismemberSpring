@@ -4,6 +4,7 @@ import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.fa
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanDefinition;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanDefinitionHolder;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.DependencyDescriptor;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.AbstractAutowireCapableBeanFactory;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.TypeConverter;

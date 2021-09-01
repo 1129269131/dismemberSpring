@@ -1,5 +1,6 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config;
 
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.BeansException;
 
 /**

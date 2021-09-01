@@ -1,6 +1,7 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springContext.context.event;
 
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.BeanFactory;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springContext.context.event.AbstractApplicationEventMulticaster;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationEvent;

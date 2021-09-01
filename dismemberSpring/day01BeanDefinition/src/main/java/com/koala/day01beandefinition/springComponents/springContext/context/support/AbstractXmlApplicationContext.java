@@ -1,11 +1,10 @@
 package com.koala.day01beandefinition.springComponents.springContext.context.support;
 
+import com.koala.day01beandefinition.springComponents.springBeans.factory.support.DefaultListableBeanFactory;
+import com.koala.day01beandefinition.springComponents.springBeans.factory.xml.XmlBeanDefinitionReader;
+import com.koala.day01beandefinition.springComponents.springContext.context.ApplicationContext;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.ResourceEntityResolver;
-import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractRefreshableConfigApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
@@ -44,14 +43,15 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 
     /**
      * Loads the bean definitions via an XmlBeanDefinitionReader.
-     * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
+     * @see XmlBeanDefinitionReader
      * @see #initBeanDefinitionReader
      * @see #loadBeanDefinitions
      */
     @Override
     protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throws BeansException, IOException {
         // Create a new XmlBeanDefinitionReader for the given BeanFactory. day07：准备读取xml内容的读取器
-        org.springframework.beans.factory.xml.XmlBeanDefinitionReader beanDefinitionReader = new org.springframework.beans.factory.xml.XmlBeanDefinitionReader(beanFactory);
+        XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
+        System.out.println("day01：准备读取xml内容的读取器");
 
         // Configure the bean definition reader with this context's
         // resource loading environment.
@@ -71,9 +71,9 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
      * <p>Can be overridden in subclasses, e.g. for turning off XML validation
      * or using a different XmlBeanDefinitionParser implementation.
      * @param reader the bean definition reader used by this context
-     * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader#setDocumentReaderClass
+     * @see XmlBeanDefinitionReader#setDocumentReaderClass
      */
-    protected void initBeanDefinitionReader(org.springframework.beans.factory.xml.XmlBeanDefinitionReader reader) {
+    protected void initBeanDefinitionReader(XmlBeanDefinitionReader reader) {
         reader.setValidating(this.validating);
     }
 

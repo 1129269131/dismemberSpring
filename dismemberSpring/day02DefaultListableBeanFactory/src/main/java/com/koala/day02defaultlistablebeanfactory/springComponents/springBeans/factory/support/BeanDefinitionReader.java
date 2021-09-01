@@ -1,5 +1,6 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support;
 
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;

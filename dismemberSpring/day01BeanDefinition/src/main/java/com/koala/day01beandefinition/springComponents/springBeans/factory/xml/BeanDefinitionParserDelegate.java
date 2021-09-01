@@ -406,6 +406,7 @@ public class BeanDefinitionParserDelegate {
             checkNameUniqueness(beanName, aliases, ele);
         }
 
+        System.out.println("day05：解析成BeanDefinition对象");
         AbstractBeanDefinition beanDefinition = parseBeanDefinitionElement(ele, beanName, containingBean);
         if (beanDefinition != null) {
             if (!StringUtils.hasText(beanName)) {

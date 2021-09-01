@@ -1,8 +1,7 @@
 package com.koala.day01beandefinition.springComponents.springContext.context.support;
 
+import com.koala.day01beandefinition.springComponents.springContext.context.ApplicationContext;
 import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
@@ -33,7 +32,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
      * @see #setConfigLocations
      * @see #afterPropertiesSet()
      */
-    public ClassPathXmlApplicationContext(org.springframework.context.ApplicationContext parent) {
+    public ClassPathXmlApplicationContext(ApplicationContext parent) {
         super(parent);
     }
 
@@ -65,7 +64,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
      * @param parent the parent context
      * @throws BeansException if context creation failed
      */
-    public ClassPathXmlApplicationContext(String[] configLocations, @Nullable org.springframework.context.ApplicationContext parent)
+    public ClassPathXmlApplicationContext(String[] configLocations, @Nullable ApplicationContext parent)
             throws BeansException {
 
         this(configLocations, true, parent);
@@ -97,7 +96,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
      * @see #refresh()
      */
     public ClassPathXmlApplicationContext(
-            String[] configLocations, boolean refresh, @Nullable org.springframework.context.ApplicationContext parent)
+            String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
             throws BeansException {
 
         super(parent);

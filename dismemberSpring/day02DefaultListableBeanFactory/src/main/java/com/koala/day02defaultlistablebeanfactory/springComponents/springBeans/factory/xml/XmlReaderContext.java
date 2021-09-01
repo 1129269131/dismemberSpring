@@ -4,6 +4,8 @@ import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.fa
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.parsing.ReaderContext;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.parsing.ReaderEventListener;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.BeanDefinitionRegistry;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.xml.NamespaceHandlerResolver;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.parsing.ProblemReporter;
 import org.springframework.beans.factory.parsing.SourceExtractor;

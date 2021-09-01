@@ -6,6 +6,9 @@ import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.fa
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanExpressionContext;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanExpressionResolver;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.ConfigurableBeanFactory;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.DisposableBeanAdapter;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.FactoryBeanRegistrySupport;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.MergedBeanDefinitionPostProcessor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeansException;

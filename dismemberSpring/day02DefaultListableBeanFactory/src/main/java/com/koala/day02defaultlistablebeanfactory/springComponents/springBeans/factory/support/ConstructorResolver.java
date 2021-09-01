@@ -1,6 +1,10 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support;
 
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.DependencyDescriptor;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.AbstractAutowireCapableBeanFactory;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.BeanDefinitionValueResolver;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.ImplicitlyAppearedSingletonException;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.InstantiationStrategy;
 import org.apache.commons.logging.Log;
 import org.springframework.beans.BeanMetadataElement;
 import org.springframework.beans.BeanWrapper;

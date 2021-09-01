@@ -9,6 +9,10 @@ import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.fa
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.ConfigurableBeanFactory;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.ConfigurableListableBeanFactory;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.DependencyDescriptor;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.AbstractAutowireCapableBeanFactory;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.BeanDefinitionOverrideException;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.MergedBeanDefinitionPostProcessor;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.SimpleAutowireCandidateResolver;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.TypeConverter;
 import org.springframework.beans.factory.BeanCreationException;
@@ -817,6 +821,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     @Override
     public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
+        System.out.println("day03：从档案馆中获取指定beanName的BeanDefinition对象");
         BeanDefinition bd = this.beanDefinitionMap.get(beanName);
         if (bd == null) {
             if (logger.isTraceEnabled()) {
@@ -993,6 +998,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
                 }
             }
             else {
+                System.out.println("day02：将BeanDefinition对象保存进档案馆");
                 // Still in startup registration phase
                 this.beanDefinitionMap.put(beanName, beanDefinition);
                 this.beanDefinitionNames.add(beanName);

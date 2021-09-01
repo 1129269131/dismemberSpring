@@ -1,6 +1,7 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support;
 
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanDefinition;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.AbstractBeanDefinition;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 

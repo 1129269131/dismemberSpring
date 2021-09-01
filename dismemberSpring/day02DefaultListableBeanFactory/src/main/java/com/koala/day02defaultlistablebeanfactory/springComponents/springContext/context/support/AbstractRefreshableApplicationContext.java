@@ -1,11 +1,10 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springContext.context.support;
 
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.ConfigurableListableBeanFactory;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.DefaultListableBeanFactory;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springContext.context.ApplicationContext;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextException;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.lang.Nullable;
 
 import java.io.IOException;
@@ -75,6 +74,7 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
             closeBeanFactory();
         }
         try {
+            System.out.println("day01：创建档案馆");
             DefaultListableBeanFactory beanFactory = createBeanFactory(); //day07：创建保存所有Bean定义信息的档案馆
             beanFactory.setSerializationId(getId());
             customizeBeanFactory(beanFactory);

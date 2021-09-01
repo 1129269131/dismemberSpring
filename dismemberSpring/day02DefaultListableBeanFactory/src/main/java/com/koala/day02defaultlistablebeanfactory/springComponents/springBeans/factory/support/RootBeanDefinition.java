@@ -2,6 +2,7 @@ package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.f
 
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanDefinition;
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanDefinitionHolder;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.core.ResolvableType;

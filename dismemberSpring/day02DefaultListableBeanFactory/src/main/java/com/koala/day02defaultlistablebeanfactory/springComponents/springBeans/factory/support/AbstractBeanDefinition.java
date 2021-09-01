@@ -1,6 +1,7 @@
 package com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support;
 
 import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.config.BeanDefinition;
+import com.koala.day02defaultlistablebeanfactory.springComponents.springBeans.factory.support.BeanDefinitionResource;
 import org.springframework.beans.BeanMetadataAttributeAccessor;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;

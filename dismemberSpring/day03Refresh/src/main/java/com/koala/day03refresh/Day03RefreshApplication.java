@@ -1,13 +1,14 @@
 package com.koala.day03refresh;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.koala.day03refresh.bean.Person;
+import com.koala.day03refresh.springComponents.springContext.context.support.ClassPathXmlApplicationContext;
 
-@SpringBootApplication
 public class Day03RefreshApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Day03RefreshApplication.class, args);
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        Person bean = context.getBean(Person.class);
+        System.out.println(bean);
     }
 
 }
