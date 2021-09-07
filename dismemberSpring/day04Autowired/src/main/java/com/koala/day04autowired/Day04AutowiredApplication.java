@@ -10,7 +10,8 @@ public class Day04AutowiredApplication {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
 
-        Person bean = applicationContext.getBean(Person.class);
+        Person person = applicationContext.getBean(Person.class);
+        System.out.println(person.getCat());
     }
 
 }

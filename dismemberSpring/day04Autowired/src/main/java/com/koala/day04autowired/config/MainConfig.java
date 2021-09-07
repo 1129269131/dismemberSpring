@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Configuration;
  * Create by koala on 2021-09-05
  */
 @ComponentScan("com.koala.day04autowired")
-@Configuration
+//@Configuration
 public class MainConfig {
 }

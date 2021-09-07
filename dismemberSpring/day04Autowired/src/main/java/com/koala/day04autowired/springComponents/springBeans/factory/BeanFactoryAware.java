@@ -1,7 +1,6 @@
 package com.koala.day04autowired.springComponents.springBeans.factory;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.Aware;
 import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.beans.factory.InitializingBean;
 

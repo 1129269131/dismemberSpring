@@ -12,13 +12,19 @@ import org.springframework.util.Assert;
 public class Day01Assert {
 
     @Test
-    void assertTest1() {
+    void noNullElementsTest() {
         Assert.noNullElements(new Object[]{null}, "Config locations must not be null");
     }
 
     @Test
-    void assertTest2() {
+    void notNullTest() {
         Assert.notNull("test", "No bean class name for configuration class bean definition");
     }
+
+    @Test
+    void stateTest() {
+        Assert.state(true, "No BeanFactory available");
+    }
+
 
 }

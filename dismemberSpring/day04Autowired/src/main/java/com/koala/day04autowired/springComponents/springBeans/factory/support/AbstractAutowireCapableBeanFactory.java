@@ -1,5 +1,6 @@
 package com.koala.day04autowired.springComponents.springBeans.factory.support;
 
+import com.koala.day04autowired.springComponents.springBeans.factory.Aware;
 import com.koala.day04autowired.springComponents.springBeans.factory.BeanFactory;
 import com.koala.day04autowired.springComponents.springBeans.factory.BeanFactoryAware;
 import com.koala.day04autowired.springComponents.springBeans.factory.FactoryBean;
@@ -19,7 +20,6 @@ import org.springframework.beans.PropertyAccessorUtils;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.TypeConverter;
-import org.springframework.beans.factory.Aware;
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.BeanCurrentlyInCreationException;
