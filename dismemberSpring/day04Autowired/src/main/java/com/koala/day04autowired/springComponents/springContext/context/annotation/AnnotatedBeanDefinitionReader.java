@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 /**
  * Create by koala on 2021-09-05
  */
-class AnnotatedBeanDefinitionReader {
+public class AnnotatedBeanDefinitionReader {
 
     private final BeanDefinitionRegistry registry;
 

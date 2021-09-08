@@ -124,7 +124,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     /** day13：如果容器中有Map<Class, Object[]/String[] ></> Map of bean definition objects, keyed by bean name. */
     //day06：所有BeanDefinition信息按照名字对应BeanDefinition关系都保存好了。
-    private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
+    public Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
 
     /** Map from bean name to merged BeanDefinitionHolder. */
     private final Map<String, BeanDefinitionHolder> mergedBeanDefinitionHolders = new ConcurrentHashMap<>(256);
@@ -139,7 +139,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
     /** List of bean definition names, in registration order. */
     //day06：保存所有BeanDefinition的名字。
-    private volatile List<String> beanDefinitionNames = new ArrayList<>(256);
+    public volatile List<String> beanDefinitionNames = new ArrayList<>(256);
 
     /** List of names of manually registered singletons, in registration order. */
     private volatile Set<String> manualSingletonNames = new LinkedHashSet<>(16);

@@ -243,7 +243,7 @@ public abstract class AnnotationConfigUtils {
         }
     }
 
-    static BeanDefinitionHolder applyScopedProxyMode(
+    public static BeanDefinitionHolder applyScopedProxyMode(
             ScopeMetadata metadata, BeanDefinitionHolder definition, BeanDefinitionRegistry registry) {
 
         ScopedProxyMode scopedProxyMode = metadata.getScopedProxyMode();

@@ -110,9 +110,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
 
     private long startupDate;
 
-    private final AtomicBoolean active = new AtomicBoolean();
+    public final AtomicBoolean active = new AtomicBoolean();
 
-    private final AtomicBoolean closed = new AtomicBoolean();
+    public final AtomicBoolean closed = new AtomicBoolean();
 
     private final Object startupShutdownMonitor = new Object();
 

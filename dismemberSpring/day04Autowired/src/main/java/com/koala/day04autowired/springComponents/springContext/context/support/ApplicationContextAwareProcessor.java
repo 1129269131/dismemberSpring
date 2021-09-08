@@ -21,7 +21,7 @@ import java.security.PrivilegedAction;
 /**
  * Create by koala on 2021-08-26
  */
-class ApplicationContextAwareProcessor implements BeanPostProcessor {
+public class ApplicationContextAwareProcessor implements BeanPostProcessor {
 
     private final ConfigurableApplicationContext applicationContext;
 

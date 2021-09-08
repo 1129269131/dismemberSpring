@@ -48,6 +48,18 @@ public class Main {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
     }
 
+    //纯粹的操作档案馆（保存单例对象/获取单例对象）
+    @Test
+    public void operateDefaultListableBeanFactory() {
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        String ENVIRONMENT_BEAN_NAME = "environment";
+        if (!beanFactory.containsLocalBean(ENVIRONMENT_BEAN_NAME)) {
+            beanFactory.registerSingleton(ENVIRONMENT_BEAN_NAME, new StringBuilder("测试保存单例对象到DefaultListableBeanFactory"));
+        }
+        Object bean = beanFactory.getBean(ENVIRONMENT_BEAN_NAME);
+        System.out.println(bean);
+    }
+
     //档案馆 保存/获取 BeanDefinition对象
     @Test
     public void saveBeanDefinitionToDefaultListableBeanFactory() {

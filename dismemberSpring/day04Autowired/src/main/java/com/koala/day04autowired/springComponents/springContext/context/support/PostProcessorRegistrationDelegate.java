@@ -29,7 +29,7 @@ import java.util.Set;
 /**
  * Create by koala on 2021-08-26
  */
-final class PostProcessorRegistrationDelegate {
+public class PostProcessorRegistrationDelegate {
 
     private PostProcessorRegistrationDelegate() {
     }

@@ -12,6 +12,8 @@ public class Person {
 
     private Cat cat;
 
+    private String name;
+
     public Person(){
         System.out.println("person创建....");//打断点测试
     }
@@ -25,4 +27,19 @@ public class Person {
         return cat;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "cat=" + cat +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

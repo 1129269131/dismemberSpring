@@ -1,6 +1,7 @@
-package com.koala.day04autowired;
+package com.koala.day04autowired.springAnnotation;
 
 import com.koala.day04autowired.bean.Person;
+import com.koala.day04autowired.springAnnotation.context.AnnotationConfigApplicationContext;
 import com.koala.day04autowired.springComponents.springBeans.factory.BeanFactory;
 import com.koala.day04autowired.springComponents.springBeans.factory.config.BeanDefinitionHolder;
 import com.koala.day04autowired.springComponents.springBeans.factory.config.BeanFactoryPostProcessor;
@@ -15,6 +16,7 @@ import com.koala.day04autowired.springComponents.springBeans.factory.xml.XmlBean
 import com.koala.day04autowired.springComponents.springBeans.factory.xml.XmlReaderContext;
 import com.koala.day04autowired.springComponents.springContext.context.ApplicationContext;
 import com.koala.day04autowired.springComponents.springContext.context.ApplicationContextAware;
+import com.koala.day04autowired.springComponents.springContext.context.annotation.AnnotatedBeanDefinitionReader;
 import com.koala.day04autowired.springComponents.springContext.context.support.AbstractApplicationContext;
 import com.koala.day04autowired.springComponents.springContext.context.support.ApplicationContextAwareProcessor;
 import com.koala.day04autowired.springComponents.springContext.context.support.ApplicationListenerDetector;
@@ -28,7 +30,6 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.parsing.FailFastProblemReporter;
 import org.springframework.beans.factory.parsing.NullSourceExtractor;
 import org.springframework.beans.factory.parsing.ProblemReporter;
@@ -36,7 +37,6 @@ import org.springframework.beans.factory.parsing.SourceExtractor;
 import org.springframework.beans.factory.xml.DefaultDocumentLoader;
 import org.springframework.beans.factory.xml.DocumentLoader;
 import org.springframework.beans.factory.xml.ResourceEntityResolver;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.ApplicationStartupAware;
@@ -54,7 +54,6 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.core.metrics.ApplicationStartup;
 import org.springframework.core.metrics.StartupStep;
 import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.xml.SimpleSaxErrorHandler;
 import org.w3c.dom.Document;
@@ -73,7 +72,7 @@ import java.util.List;
 /**
  * Create by koala on 2021-09-07
  */
-public class Day01Autowired {
+public class Day02Autowired {
 
     @Nullable
     private LifecycleProcessor lifecycleProcessor;
@@ -81,32 +80,7 @@ public class Day01Autowired {
     //调用refresh方法
     @Test
     public void refresh() {
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-        beanFactory.setSerializationId("@test123");
-
-        BeanDefinitionHolder bdHolder = this.getDocumentBeanDefinition();
-        String beanName = bdHolder.getBeanName();
-        beanFactory.registerBeanDefinition(beanName,bdHolder.getBeanDefinition());
-
-        AbstractApplicationContext applicationContext = new AbstractApplicationContext() {
-            @Override
-            protected void refreshBeanFactory() throws BeansException, IllegalStateException {
-            }
-
-            @Override
-            protected void closeBeanFactory() {
-            }
-
-            @Override
-            public void addProtocolResolver(ProtocolResolver resolver) {
-
-            }
-
-            @Override
-            public ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException {
-                return beanFactory;
-            }
-        };
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
 
         //day20：准备上下文环境 Prepare this context for refreshing.
         prepareRefresh(applicationContext);
@@ -118,24 +92,25 @@ public class Day01Autowired {
 
         StartupStep beanPostProcess = applicationStartup.start("spring.context.beans.post-process");
         //day22：【大核心】day11：工厂增强：执行所有的BeanFactory后置增强器；利用BeanFactory后置增强器对工厂进行修改或者增强,配置类会在这里进行解析。 In
-        invokeBeanFactoryPostProcessors(beanFactory);
+        invokeBeanFactoryPostProcessors(applicationContext.getBeanFactory());
 
         //day22：【小核心】day12：注册所有的Bean的后置处理器 Register bean processors that intercept bean creation.
-        registerBeanPostProcessors(beanFactory,applicationContext);
+        registerBeanPostProcessors(applicationContext.getBeanFactory(),applicationContext);
         beanPostProcess.end();
 
         // Instantiate all remaining (non-lazy-init) singletons.
         //day22：【大核心】day09：bean创建；完成 BeanFactory 初始化。（工厂里面所有的组件都好了）
-        finishBeanFactoryInitialization(beanFactory);
+        finishBeanFactoryInitialization(applicationContext.getBeanFactory());
 
         // Instantiate all remaining (non-lazy-init) singletons.
         //day22：【大核心】day09：bean创建；完成 BeanFactory 初始化。（工厂里面所有的组件都好了）
-        finishBeanFactoryInitialization(beanFactory);
+        finishBeanFactoryInitialization(applicationContext.getBeanFactory());
 
         //applicationContext.refresh();
 
+//        Arrays.stream(applicationContext.getBeanDefinitionNames()).forEach(System.out::println);
         Person bean = applicationContext.getBean(Person.class);
-        System.out.println("恭喜你，最终通过自己的容器获取到Person对象！！！");
+        System.out.println("恭喜你，最终通过自己的annotation容器获取到Person对象！！！");
         System.out.println(bean);
     }
 

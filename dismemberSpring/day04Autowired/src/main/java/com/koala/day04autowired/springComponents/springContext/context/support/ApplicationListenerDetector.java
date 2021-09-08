@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Create by koala on 2021-08-26
  */
-class ApplicationListenerDetector implements DestructionAwareBeanPostProcessor, MergedBeanDefinitionPostProcessor {
+public class ApplicationListenerDetector implements DestructionAwareBeanPostProcessor, MergedBeanDefinitionPostProcessor {
     private static final Log logger = LogFactory.getLog(ApplicationListenerDetector.class);
 
     private final transient AbstractApplicationContext applicationContext;
