@@ -117,8 +117,6 @@ public class AnnotationConfigApplicationContext extends AbstractApplicationConte
             RootBeanDefinition def = new RootBeanDefinition(ConfigurationClassPostProcessor.class);
             def.setSource(null);
             this.beanFactory.registerBeanDefinition(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME, def);
-            /*this.beanFactory.beanDefinitionMap.put(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME, def);
-            this.beanFactory.beanDefinitionNames.add(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME);*/
         }
 
         //day19：注册底层的自动装配处理器

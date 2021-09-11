@@ -33,7 +33,7 @@ import java.util.Set;
 /**
  * Create by koala on 2021-09-05
  */
-abstract class ConfigurationClassUtils {
+public abstract class ConfigurationClassUtils {
 
     public static final String CONFIGURATION_CLASS_FULL = "full";
 

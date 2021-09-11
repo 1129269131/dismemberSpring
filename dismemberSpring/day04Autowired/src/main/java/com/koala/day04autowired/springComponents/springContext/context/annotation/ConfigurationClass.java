@@ -23,7 +23,7 @@ import java.util.Set;
 /**
  * Create by koala on 2021-09-05
  */
-final class ConfigurationClass {
+public class ConfigurationClass {
 
     private final AnnotationMetadata metadata;
 

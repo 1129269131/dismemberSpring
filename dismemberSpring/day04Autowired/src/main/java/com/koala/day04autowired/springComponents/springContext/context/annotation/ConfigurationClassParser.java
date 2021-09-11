@@ -78,7 +78,7 @@ import java.util.function.Predicate;
 /**
  * Create by koala on 2021-09-05
  */
-class ConfigurationClassParser {
+public class ConfigurationClassParser {
 
     private static final PropertySourceFactory DEFAULT_PROPERTY_SOURCE_FACTORY = new DefaultPropertySourceFactory();
 
@@ -607,7 +607,7 @@ class ConfigurationClassParser {
     /**
      * Factory method to obtain a {@link ConfigurationClassParser.SourceClass} from a {@link ConfigurationClass}.
      */
-    private ConfigurationClassParser.SourceClass asSourceClass(ConfigurationClass configurationClass, Predicate<String> filter) throws IOException {
+    public ConfigurationClassParser.SourceClass asSourceClass(ConfigurationClass configurationClass, Predicate<String> filter) throws IOException {
         AnnotationMetadata metadata = configurationClass.getMetadata();
         if (metadata instanceof StandardAnnotationMetadata) {
             return asSourceClass(((StandardAnnotationMetadata) metadata).getIntrospectedClass(), filter);
@@ -887,7 +887,7 @@ class ConfigurationClassParser {
      * Simple wrapper that allows annotated source classes to be dealt with
      * in a uniform manner, regardless of how they are loaded.
      */
-    private class SourceClass implements Ordered {
+    public class SourceClass implements Ordered {
 
         private final Object source;  // Class or MetadataReader
 

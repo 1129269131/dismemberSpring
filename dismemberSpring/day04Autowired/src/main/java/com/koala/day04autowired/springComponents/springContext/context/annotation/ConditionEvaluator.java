@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Create by koala on 2021-09-05
  */
-class ConditionEvaluator {
+public class ConditionEvaluator {
 
     private final ConditionEvaluator.ConditionContextImpl context;
 
