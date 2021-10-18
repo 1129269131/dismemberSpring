@@ -1,0 +1,1 @@
+@Configuration  配置起来就报错的根源在 ConfigurationClassPostProcessor.java 类 的 ((ConfigurationClassEnhancer.EnhancedConfiguration) bean).setBeanFactory(this.beanFactory);

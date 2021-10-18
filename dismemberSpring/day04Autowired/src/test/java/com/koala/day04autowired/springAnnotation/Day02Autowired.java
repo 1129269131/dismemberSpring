@@ -102,10 +102,6 @@ public class Day02Autowired {
         //day22：【大核心】day09：bean创建；完成 BeanFactory 初始化。（工厂里面所有的组件都好了）
         finishBeanFactoryInitialization(applicationContext.getBeanFactory());
 
-        // Instantiate all remaining (non-lazy-init) singletons.
-        //day22：【大核心】day09：bean创建；完成 BeanFactory 初始化。（工厂里面所有的组件都好了）
-        //finishBeanFactoryInitialization(applicationContext.getBeanFactory());
-
         //applicationContext.refresh();
 
 //        Arrays.stream(applicationContext.getBeanDefinitionNames()).forEach(System.out::println);

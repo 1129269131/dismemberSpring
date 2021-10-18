@@ -116,6 +116,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -131,6 +132,8 @@ public class Day03ConfigurationClassParser {
 
     @Test
     public void configurationClassParserTest() throws Exception{
+        String configPath = "com.koala.day04autowired.config.MainConfig";
+
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         org.springframework.core.io.ResourceLoader resourceLoader = applicationContext;
         this.metadataReaderFactory = new CachingMetadataReaderFactory(resourceLoader);
@@ -153,7 +156,7 @@ public class Day03ConfigurationClassParser {
         }
 
         BeanNameGenerator componentScanBeanNameGenerator = AnnotationBeanNameGenerator.INSTANCE;
-        MetadataReader reader = this.metadataReaderFactory.getMetadataReader("com.koala.day04autowired.config.MainConfig");
+        MetadataReader reader = this.metadataReaderFactory.getMetadataReader(configPath);
         ConfigurationClass configClass = new ConfigurationClass(reader,"mainConfig");
 //        ConfigurationClassParser parser = new ConfigurationClassParser();
         ConfigurationClassParser parser = new ConfigurationClassParser(
@@ -176,14 +179,16 @@ public class Day03ConfigurationClassParser {
             Arrays.stream(basePackagesArray).forEach(System.out::println);
 
             //扫描器扫描工作
-            Set<BeanDefinitionHolder> parse = parse(componentScan, "com.koala.day04autowired.config.MainConfig", registry, environment, resourceLoader, componentScanBeanNameGenerator);
+            Set<BeanDefinitionHolder> parse = parse(componentScan, configPath, registry, environment, resourceLoader, componentScanBeanNameGenerator);
             parse.stream().forEach(System.out::println);
             /*ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(registry,
                     componentScan.getBoolean("useDefaultFilters"), environment, resourceLoader);*/
         }
 
-        /*Person bean = applicationContext.getBean(Person.class);
-        System.out.println(bean);*/
+        Map<String, BeanDefinition> beanDefinitionMap = applicationContext.beanFactory.beanDefinitionMap;
+
+        Set<String> beanDefinitionMapKeys = beanDefinitionMap.keySet();
+        beanDefinitionMapKeys.stream().forEach(System.out::println);
     }
 
     public Set<BeanDefinitionHolder> parse(AnnotationAttributes componentScan, final String declaringClass,BeanDefinitionRegistry registry,ConfigurableEnvironment environment,org.springframework.core.io.ResourceLoader resourceLoader,BeanNameGenerator beanNameGenerator) {
