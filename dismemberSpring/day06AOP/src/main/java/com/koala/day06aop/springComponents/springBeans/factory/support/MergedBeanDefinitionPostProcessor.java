@@ -1,6 +1,6 @@
 package com.koala.day06aop.springComponents.springBeans.factory.support;
 
-import org.springframework.beans.factory.config.BeanPostProcessor;
+import com.koala.day06aop.springComponents.springBeans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 

@@ -1,21 +1,19 @@
-package com.koala.day06aop.config;
+package com.koala.day06aop.springComponents.springContext.context.annotation;
 
 import com.koala.day06aop.springComponents.springAop.AopConfigUtils;
 import com.koala.day06aop.springComponents.springBeans.factory.support.BeanDefinitionRegistry;
-import com.koala.day06aop.springComponents.springContext.context.annotation.AnnotationConfigUtils;
-import com.koala.day06aop.springComponents.springContext.context.annotation.ImportBeanDefinitionRegistrar;
 import com.koala.day06aop.springComponents.springCore.core.annotation.AnnotationAttributes;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.type.AnnotationMetadata;
 
 /**
- * Create by koala on 2021-10-13
+ * Create by koala on 2021-10-19
  */
 class AspectJAutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
 
     /**
      * Register, escalate, and configure the AspectJ auto proxy creator based on the value
-     * of the @{@link EnableAspectJAutoProxy#proxyTargetClass()} attribute on the importing
+     * of the @{@link org.springframework.context.annotation.EnableAspectJAutoProxy#proxyTargetClass()} attribute on the importing
      * {@code @Configuration} class.
      */
     @Override

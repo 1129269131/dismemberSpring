@@ -6,6 +6,7 @@ import com.koala.day06aop.springComponents.springBeans.factory.annotation.Annota
 import com.koala.day06aop.springComponents.springBeans.factory.config.BeanDefinition;
 import com.koala.day06aop.springComponents.springBeans.factory.config.BeanDefinitionHolder;
 import com.koala.day06aop.springComponents.springBeans.factory.config.ConfigurableListableBeanFactory;
+import com.koala.day06aop.springComponents.springBeans.factory.config.InstantiationAwareBeanPostProcessor;
 import com.koala.day06aop.springComponents.springBeans.factory.support.AbstractBeanDefinition;
 import com.koala.day06aop.springComponents.springBeans.factory.support.BeanDefinitionRegistry;
 import com.koala.day06aop.springComponents.springBeans.factory.support.BeanDefinitionRegistryPostProcessor;
@@ -15,7 +16,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.config.SingletonBeanRegistry;
 import org.springframework.beans.factory.parsing.FailFastProblemReporter;
 import org.springframework.beans.factory.parsing.PassThroughSourceExtractor;

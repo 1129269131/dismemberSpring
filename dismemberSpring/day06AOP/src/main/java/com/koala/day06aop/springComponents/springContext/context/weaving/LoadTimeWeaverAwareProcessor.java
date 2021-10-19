@@ -2,8 +2,8 @@ package com.koala.day06aop.springComponents.springContext.context.weaving;
 
 import com.koala.day06aop.springComponents.springBeans.factory.BeanFactory;
 import com.koala.day06aop.springComponents.springBeans.factory.BeanFactoryAware;
+import com.koala.day06aop.springComponents.springBeans.factory.config.BeanPostProcessor;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.weaving.LoadTimeWeaverAware;
 import org.springframework.instrument.classloading.LoadTimeWeaver;
