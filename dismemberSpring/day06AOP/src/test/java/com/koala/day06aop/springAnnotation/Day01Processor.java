@@ -1,5 +1,6 @@
 package com.koala.day06aop.springAnnotation;
 
+import com.koala.day06aop.aop.HelloService01;
 import com.koala.day06aop.bean.Person;
 import com.koala.day06aop.config.MainConfig;
 import com.koala.day06aop.springAnnotation.context.AnnotationConfigApplicationContext;
@@ -108,6 +109,12 @@ public class Day01Processor {
         Person bean = applicationContext.getBean(Person.class);
         System.out.println("恭喜你，最终通过自己的annotation容器获取到Person对象！！！");
         System.out.println(bean);
+
+        //AOP,原理测试
+        HelloService01 helloService = applicationContext.getBean(HelloService01.class);
+
+        //代理对象来调用方法
+        helloService.sayHello("zhangsan");
     }
 
     @Test
