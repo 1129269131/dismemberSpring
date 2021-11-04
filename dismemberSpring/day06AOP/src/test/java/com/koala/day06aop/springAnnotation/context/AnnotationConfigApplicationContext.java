@@ -105,7 +105,8 @@ public class AnnotationConfigApplicationContext extends AbstractApplicationConte
     public DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 
     public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
-        this.reader = new AnnotatedBeanDefinitionReader(this);
+        com.koala.day06aop.springComponents.springContext.context.annotation.AnnotationConfigApplicationContext context = new com.koala.day06aop.springComponents.springContext.context.annotation.AnnotationConfigApplicationContext();
+        this.reader = new AnnotatedBeanDefinitionReader(context);
         this.beanFactory.setSerializationId("@test123");
 
         StartupStep createAnnotatedBeanDefReader = this.getApplicationStartup().start("spring.context.annotated-bean-reader.create");
